@@ -39,3 +39,7 @@ luac.out
 *.x86_64
 *.hex
 
+# Templating output
+output.luau
+darklua
+darklua/darklua
