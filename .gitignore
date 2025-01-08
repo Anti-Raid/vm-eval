@@ -43,3 +43,4 @@ luac.out
 output.luau
 darklua
 darklua/darklua
+./output.luau
