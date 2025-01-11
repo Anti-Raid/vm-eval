@@ -12,7 +12,7 @@ Message(evt, function(msg)
     print(p.data.application_commands)
     local msg_handle = promise.yield(discordExecutor:create_message({
         channel_id = "mychannelid",
-        message = {
+        data = {
             content = "Hello, world!"
         } 
     }))  
