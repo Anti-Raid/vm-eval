@@ -10,6 +10,7 @@
         "antiraid": "./templating-types/@antiraid/",
         "antiraid-core": "./templating-types/@antiraid-core/",
         "discord-types": "./templating-types/discord-luau-corrections/",
-        "antiraid-ext": "./templating-types/@antiraid-ext/"
+        "antiraid-ext": "./templating-types/@antiraid-ext/",
+        "lune": "./templating-types/@lune/"
     }
 }
