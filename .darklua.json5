@@ -8,12 +8,13 @@
     },
     generator: "readable",
     rules: [
-        "remove_types",
-        "remove_unused_variable",
         {
             rule: "inject_global_value",
             identifier: "_TEST_ASYNC_WORK",
             value: null,
-        }
+        },
+        "remove_unused_if_branch",
+        "remove_types",
+        "remove_unused_variable"
     ]
 }
