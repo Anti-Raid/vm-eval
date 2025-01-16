@@ -9,6 +9,11 @@
     generator: "readable",
     rules: [
         "remove_types",
-        "remove_unused_variable"
+        "remove_unused_variable",
+        {
+            rule: "inject_global_value",
+            identifier: "_TEST_ASYNC_WORK",
+            value: null,
+        }
     ]
 }
