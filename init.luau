@@ -82,7 +82,7 @@ local function evaluateExpression(interaction: discordApiTypes.InteractionObject
     local chunk = luau.load(ctx, content)
     chunk.optimization_level = 2
     chunk.chunk_name = "__vm_eval_chunk"
-    local result = promise.yield(chunk:call_async({}))
+    local ok, result = pcall(promise.yield, chunk:call_async({}))
 
     -- Print result
     if status == "deferred" then
@@ -93,7 +93,15 @@ local function evaluateExpression(interaction: discordApiTypes.InteractionObject
                     {
                         title = "Result",
                         description = "```\n" .. tostring(result) .. "\n```",
-                    }
+                        fields = toArray({
+                            {
+                                name = "OK",
+                                value = tostring(ok),
+                                inline = false,
+                            },
+                        }),
+                        color = if ok then 0x00FF00 else 0xFF0000,
+                    },
                 })
             } :: discordRestTypes.CreateFollowupMessageRequest
         }))
@@ -108,8 +116,16 @@ local function evaluateExpression(interaction: discordApiTypes.InteractionObject
                         {
                             title = "Result",
                             description = "```\n" .. tostring(result) .. "\n```",
+                            fields = toArray({
+                                {
+                                    name = "OK",
+                                    value = tostring(ok),
+                                    inline = false,
+                                },
+                            }),
+                            color = if ok then 0x00FF00 else 0xFF0000,
                         }
-                    })
+                    }),
                 }
             } :: discordRestTypes.CreateInteractionRequest
         }))
