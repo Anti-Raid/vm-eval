@@ -44,3 +44,4 @@ output.luau
 darklua
 darklua/darklua
 ./output.luau
+.env
